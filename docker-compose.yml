@@ -21,12 +21,12 @@ services:
     volumes:
       - ./config:/data/config
   mongo:
-    image: bitnami/mongodb
+    image: mongo
     expose:
       - "27017"
     environment:
-      - MONGODB_USERNAME=speedtest
-      - MONGODB_PASSWORD=speedtest
-      - MONGODB_DATABASE=speedtest
+      - MONGO_INITDB_ROOT_USERNAME=speedtest
+      - MONGO_INITDB_ROOT_PASSWORD=speedtest
+      - MONGO_INITDB_DATABASE=speedtest
     volumes:
-      - ./mongo-persistence:/bitnami
+      - ./mongo-persistence:/data/db
