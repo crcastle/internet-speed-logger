@@ -2,7 +2,7 @@ FROM node:12 as build
 WORKDIR /data/
 ENV NODE_ENV=production
 RUN export SPEEDTESTVERSION="1.0.0" && \
-    export SPEEDTESTARCH="x86_64" && \
+    export SPEEDTESTARCH="$(uname -m)" && \
     export SPEEDTESTPLATFORM="linux" && \
     mkdir -p bin && \
     curl -Ss -L https://ookla.bintray.com/download/ookla-speedtest-$SPEEDTESTVERSION-$SPEEDTESTARCH-$SPEEDTESTPLATFORM.tgz | tar -zx -C /data/bin && \
